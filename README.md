@@ -29,9 +29,9 @@
 5. Create a database user which we will use to connect to the database:  
 `CREATE USER blockwork_user WITH PASSWORD 'blockwork_pass';`
 6. Modify a few of the connection parameters for the user we just created:  
-`ALTER ROLE blockwork_user SET client_encoding TO 'utf8';`
-`ALTER ROLE blockwork_user SET default_transaction_isolation TO 'read committed';`
-`ALTER ROLE blockwork_user SET timezone TO 'UTC';`
+`ALTER ROLE blockwork_user SET client_encoding TO 'utf8';`      
+`ALTER ROLE blockwork_user SET default_transaction_isolation TO 'read committed';`      
+`ALTER ROLE blockwork_user SET timezone TO 'UTC';`      
 `ALTER USER blockwork_user CREATEDB;`
 7. Give our database user access rights to the database we created:  
 `GRANT ALL PRIVILEGES ON DATABASE blobwork TO blobwork_user;`
@@ -52,12 +52,12 @@ then: `python manage.py migrate`
 
 ### API Endpoints
 ##### Product
-Method: `GET`
-Endpoint: `/product/`
+Method: `GET`       
+Endpoint: `/product/`   
 Description: `List all products from the database`
 
-Method: `POST`
-Endpoint: `/product/`
+Method: `POST`      
+Endpoint: `/product/`       
 Payload:
 `{
     "title": "product name",
@@ -67,15 +67,15 @@ Payload:
     "categories": [
         1,2
         ]
-}`
+}`      
 Description: `Create new product in the database`
 
-Method: `GET`
-Endpoint: `/product/<product ID>/`
+Method: `GET`       
+Endpoint: `/product/<product ID>/`      
 Description: `Get product in detail from the database`
 
-Method: `PUT`
-Endpoint: `/product/<product ID>/`
+Method: `PUT`       
+Endpoint: `/product/<product ID>/`      
 Payload:
 `{
     "title": "new product name",
@@ -85,44 +85,44 @@ Payload:
     "categories": [
         1,2,3,4
         ]
-}`
+}`      
 Description: `Update existing product in the database`
 
-Method: `DELETE`
-Endpoint: `/product/<product ID>/`
+Method: `DELETE`        
+Endpoint: `/product/<product ID>/`      
 Description: `Delete product from the database`
 
 ##### Category
-Method: `GET`
-Endpoint: `/category/`
+Method: `GET`       
+Endpoint: `/category/`      
 Description: `List all categories from the database`
 
-Method: `POST`
-Endpoint: `/category/`
+Method: `POST`      
+Endpoint: `/category/`      
 Payload:
 `{
     "name": "category name",
     "parent": 1 or can be null
-}`
+}`      
 Description: `Create new category in the database`
 
-Method: `GET`
-Endpoint: `/category/<category ID>/`
+Method: `GET`       
+Endpoint: `/category/<category ID>/`        
 Description: `Get category in detail from the database`
 
-Method: `PUT`
-Endpoint: `/category/<category ID>/`
+Method: `PUT`       
+Endpoint: `/category/<category ID>/`        
 Payload:
 `{
     "name": "new category name",
     "parent": new parent ID or can be null
-}`
+}`      
 Description: `Update existing category in the database`
 
-Method: `DELETE`
-Endpoint: `/category/<category ID>/`
+Method: `DELETE`        
+Endpoint: `/category/<category ID>/`        
 Description: `Delete category from the database`
 
-Method: `GET`
-Endpoint: `/category/<category ID>/children/`
+Method: `GET`       
+Endpoint: `/category/<category ID>/children/`       
 Description: `Get specific category children from the database`
